@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
+import { EmailDTO } from './email-dto';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  sendEmail(data: EmailDTO): void {
+    //TODO: implementar envio de email
   }
 }
