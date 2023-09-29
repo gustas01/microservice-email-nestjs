@@ -8,14 +8,13 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @MessagePattern({ cmd: 'send_email' })
-  sendEmail(data: EmailDTO): void {
-    return this.appService.sendEmail(data);
+  sendEmail(data: EmailDTO): string {
+    this.appService.sendEmail(data);
+    return 'Email enviado com sucesso!';
   }
 
   // @EventPattern('send_email')
-  // sendEmailEvent(data: any): void {
-  //   console.log('do EventPattern');
-  //   console.log(data);
-  //   this.appService.sendEmail();
+  // sendEmailEvent(data: EmailDTO): void {
+  //   this.appService.sendEmail(data);
   // }
 }

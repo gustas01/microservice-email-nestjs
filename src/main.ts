@@ -7,8 +7,8 @@ async function bootstrap() {
     transport: Transport.RMQ,
     options: {
       urls: [`${process.env.RMQ_URL}`],
-      queue: 'email_queue',
-      noAck: false,
+      queue: process.env.QUEUE_NAME,
+      // noAck: false,
       queueOptions: { durable: false },
     },
   });
