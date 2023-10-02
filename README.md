@@ -33,4 +33,4 @@ MAILDEV_INCOMING_PASS=
 3º passo - No mesmo terminal, execute `npm run start:dev`para que o projeto seja executado em modos de desenvolvimento.
 
 ## Como usar
-Faça o envio das mensagens para a fila do RabbitMQ (descrita no .env) usando o pattern: `{ cmd: 'send_email' }`
+Faça o envio das mensagens para a fila do RabbitMQ (descrita no .env) usando o pattern: `send_email`
