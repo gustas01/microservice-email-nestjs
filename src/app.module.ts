@@ -15,7 +15,7 @@ import { AppService } from './app.service';
         transport: Transport.RMQ,
         options: {
           urls: [`${process.env.RMQ_URL}`],
-          queue: 'email_queue',
+          queue: process.env.QUEUE_NAME,
           queueOptions: { durable: false },
         },
       },

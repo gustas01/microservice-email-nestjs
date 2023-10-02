@@ -1,5 +1,5 @@
 import { Controller } from '@nestjs/common';
-import { MessagePattern } from '@nestjs/microservices';
+import { EventPattern } from '@nestjs/microservices';
 import { AppService } from './app.service';
 import { EmailDTO } from './email-dto';
 
@@ -7,14 +7,14 @@ import { EmailDTO } from './email-dto';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @MessagePattern({ cmd: 'send_email' })
-  sendEmail(data: EmailDTO): string {
-    this.appService.sendEmail(data);
-    return 'Email enviado com sucesso!';
-  }
-
-  // @EventPattern('send_email')
-  // sendEmailEvent(data: EmailDTO): void {
+  // @MessagePattern('send_email')
+  // sendEmail(@Payload() data: EmailDTO): string {
   //   this.appService.sendEmail(data);
+  //   return 'Email enviado com sucesso!';
   // }
+
+  @EventPattern('send_email')
+  sendEmailEvent(data: EmailDTO): void {
+    this.appService.sendEmail(data);
+  }
 }
